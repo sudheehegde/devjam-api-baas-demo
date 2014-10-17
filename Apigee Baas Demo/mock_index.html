@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>BaaS Demo App</title>
+  <link rel="stylesheet" type="text/css" href="style.css" /> 
+  <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript">
+
+$(document).ready(function(){
+  $("#settingsdiv").hide(); 
+  $('.following').hover(function(){
+      $(this).text("Unfollow");
+    },function(){
+       $(this).text("Following");
+    });
+    $('.follow').click(function(){
+      $(this).toggleClass('following follow').unbind("hover");      
+      if($(this).is('.follow')){
+          $(this).text("Follow");
+      }
+      else{
+          $(this).bind({
+              mouseleave:function(){
+                  $(this).text("Following");
+              },
+              mouseenter:function(){
+                $(this).text("Unfollow");
+              }      
+          });
+        }
+    });
+    $('.find').click(function(){
+      if ($(this).text() == 'Back'){
+        //loadUsers();
+        $("#settingsdiv").hide();  
+        $("#contentdiv").show(); 
+         $(this).text("Settings"); 
+      }else{
+        $(this).text("Back"); 
+        $("#contentdiv").hide(); 
+        $("#settingsdiv").show();
+      }
+    });
+});
+
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">
+    <a align='left' href="http://www.apigee.com"> 
+      <img src="img/apigee.png" alt="Apigee logo" title="Apigee logo"  height="50" width="120" />
+    </a> <br><br><b> <font color="#999">Weather App </b> </font>
+    </h1>
+
+  <div class="usercontent"> 
+        Hello <b>Arthur!</b> <span class="button find" id='findbtn' href="#find-friend">Settings</span>  
+  </div>
+  
+<br>
+<div class="content" id="settingsdiv"> 
+<div class="item">
+	<a href="#">
+		<strong class="name">New York</strong>
+		<span class="username ">US</span>
+	</a>
+	<span class="button follow" id='bob'>Follow</span>
+</div>
+<div class="item">
+	<a href="#">
+		<strong class="name">London</strong>
+		<span class="username ">UK</span>
+	</a>
+	<span class="button follow" id='chang'>Follow</span>
+</div>
+<div class="item">
+	<a href="#">
+		<strong class="name">Bangalore</strong>
+		<span class="username ">INDIA</span>
+	</a>
+	<span class="button follow" id='dave'>Follow</span>
+</div>
+</div>
+
+
+
+<div class="content" id="contentdiv"> 
+<div class="item">
+    <strong class="name">New York</strong>
+    <span class="username ">US</span>
+    <strong class="name">21'C</strong>
+    <strong class="name">19'C</strong> 
+    <img align="right" src="img/cloudy.jpg" height="30" width="50"/>
+</div>
+<div class="item">
+    <strong class="name">London</strong>
+    <span class="username">UK</span>
+    <strong class="name">18'C</strong>
+    <strong class="name">16'C</strong> 
+    <img align="right" src="img/rainy.jpg" height="30" width="50"/>
+</div>
+<div class="item">
+    <strong class="name">Bangalore</strong>
+    <span class="username ">IN</span>
+    <strong class="name">30'C</strong>
+    <strong class="name">28'C</strong> 
+    <img align="right" src="img/sunny.jpg" height="30" width="50"/>
+</div>
+</div>
+
+
+  </div>
+
+
+
+</body>
+</html>
+   
